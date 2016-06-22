@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @ticket.artist %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @ticket.date %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @ticket.venue %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @ticket.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @ticket.state %>
+</p>
+
+<p>
+  <strong>Genre:</strong>
+  <%= @ticket.genre %>
+</p>
+
+<p>
+  <strong>Sold:</strong>
+  <%= @ticket.sold %>
+</p>
+
+<p>
+  <strong>Tickets:</strong>
+  <%= @ticket.tickets %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

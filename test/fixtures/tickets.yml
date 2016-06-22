@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: MyString
+  date: 2016-06-21
+  venue: MyString
+  city: MyString
+  state: MyString
+  genre: MyString
+  sold: false
+  tickets: MyString
+
+two:
+  artist: MyString
+  date: 2016-06-21
+  venue: MyString
+  city: MyString
+  state: MyString
+  genre: MyString
+  sold: false
+  tickets: MyString

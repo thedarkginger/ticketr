@@ -1,0 +1,94 @@
+<div class="jumbotron">
+	<h1>Welcome to Ticketr</h1>
+	<h3>Claim Your Ticketmaster Class Action Free Tickets!</h3>
+	Click here to <%= link_to "Sign Up", "#", class: "btn btn-primary" %>
+</div>
+
+<div style="text-align: center">
+	<b>Shows in Your State:</b>
+	<select id="yourSelect" name="landingpage">
+		<option value="" label="choose one">Choose Your State</option>
+		<option value="/state?id=ca" label="landing 1">California</option>
+		<option value="/state?id=de" label="landing 2">Delaware</option>
+		<option value="/state?id=il" label="landing 2">Illinois</option>
+		<option value="/state?id=in" label="landing 2">Indiana</option>
+		<option value="/state?id=la" label="landing 2">Louisiana</option>
+		<option value="/state?id=nj" label="landing 2">New Jersey</option>
+		<option value="/state?id=ny" label="landing 2">New York</option>
+		<option value="/state?id=ut" label="landing 2">Utah</option>
+		</select>
+</div>
+
+<br> 
+<div style="text-align: center">
+	<b>Or</b>
+</div>
+<br>
+
+<div style="text-align: center">
+	<b>Choose Your Genre:</b>
+	<div style="text-align: center">
+	<b>Shows in Your State:</b>
+	<select id="otherSelect" name="landingpage">
+		<option value="" label="choose one">Choose Your State</option>
+		<option value="/genre?id=country" label="landing 1">Country</option>
+		<option value="/genre?id=rap" label="landing 2">Rap</option>
+		</select>
+</div>
+</div>
+
+
+<table class="table table-striped">
+
+<thead>
+	<tr>
+		<th>Date</th>
+		<th>Artist</th>
+		<th>Venue</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Ticket Link</th>
+	</tr>
+</thead>
+
+<tbody>
+    <% @tickets.each_with_index do |ticket, index| %>
+         <tr>
+            <td><%= ticket.date %></td>
+            <td><%= ticket.artist %></td>
+            <td><%= ticket.venue %></td>
+            <td><%= ticket.city %></td>
+            <td><%= ticket.state %></td>
+            <td><%= link_to "Get Tickets &raquo;".html_safe, ticket.tickets, class: "btn btn-primary btn-md" %></td>
+
+
+      <% end %>
+      </tr>
+<tbody>
+
+ </table>
+
+ <script>
+
+$(function(){
+  $('#yourSelect').on('change', function () {
+      var url = $(this).val();
+      if (url) {
+          window.location = url;
+      }
+      return false;
+  });
+});
+
+$(function(){
+  $('#otherSelect').on('change', function () {
+      var url = $(this).val();
+      if (url) {
+          window.location = url;
+      }
+      return false;
+  });
+});
+
+
+ </script>
