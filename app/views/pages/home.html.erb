@@ -1,77 +1,100 @@
+<div class="container">
+
 <div class="jumbotron">
-	<h1>Welcome to Ticketr</h1>
-	<h3>Claim Your Ticketmaster Class Action Free Tickets!</h3>
+	<h1 style="text-align: center;">Get Your Free TM Tickets</h1>
+	<hr class="star-light">
+	<p><b>Ticketmaster made it hard to claim your Class Action tickets, so let's make it easy</b></p>
+	<p>Ticketmaster is obligated to pay approximately $40M back to its customers after a class action settlement over its service fees. The Verge has called their strategy a "garbage fire legal settlement."</p>
+	<p><b>They aren't wrong!</b></p>
+	<p>Ticketmaster put up a huge list of shows that you are eligible to attend with your Class Action vouchers. The problem: <b>the list isn't remotely searchable</b>, and it's filled with bands that you forgot in 1999.</p>
 	To see Ticketmaster's real list, <%= link_to "Click Here", "#", class: "btn btn-primary" %>
 </div>
 
-<div style="text-align: center">
-	<b>Shows in Your State:</b>
-	<select id="yourSelect" name="landingpage">
-		<option value="" label="choose one">Choose Your State</option>
-		<option value="/state?id=ca" label="California">California</option>
-		<option value="/state?id=co" label="Colorado">Colorado</option>
-		<option value="/state?id=de" label="Delaware">Delaware</option>
-		<option value="/state?id=il" label="Illinois">Illinois</option>
-		<option value="/state?id=in" label="Indiana">Indiana</option>
-		<option value="/state?id=fl" label="Florida">Florida</option>
-		<option value="/state?id=la" label="Louisiana">Louisiana</option>
-		<option value="/state?id=nj" label="New Jersey">New Jersey</option>
-		<option value="/state?id=ny" label="New York">New York</option>
-		<option value="/state?id=oh" label="Ohio">Ohio</option>
-		<option value="/state?id=tx" label="Texas">Texas</option>
-		<option value="/state?id=ut" label="Utah">Utah</option>
-		</select>
-</div>
+	 <div style="text-align: center">
+				<p>Shows in Your State:</p>
+				<select id="yourSelect" name="landingpage">
+					<option value="" label="choose one">Choose Your State</option>
+					<option value="/state?id=ca" label="California">California</option>
+					<option value="/state?id=co" label="Colorado">Colorado</option>
+					<option value="/state?id=de" label="Delaware">Delaware</option>
+					<option value="/state?id=il" label="Illinois">Illinois</option>
+					<option value="/state?id=in" label="Indiana">Indiana</option>
+					<option value="/state?id=fl" label="Florida">Florida</option>
+					<option value="/state?id=la" label="Louisiana">Louisiana</option>
+					<option value="/state?id=nj" label="New Jersey">New Jersey</option>
+					<option value="/state?id=ny" label="New York">New York</option>
+					<option value="/state?id=oh" label="Ohio">Ohio</option>
+					<option value="/state?id=tx" label="Texas">Texas</option>
+					<option value="/state?id=ut" label="Utah">Utah</option>
+					</select>
+			</div>
 
-<br> 
-<div style="text-align: center">
-	<b>Or</b>
-</div>
+			</div> <!-- end container --> 
+
+			<br> 
+			<div style="text-align: center">
+				<b>Or</b>
+			</div>
+			<br>
+
+			<div class="container">
+
+			<div style="text-align: center">
+				<p>Shows in Your Genre:</p>
+				<select id="otherSelect" name="landingpage">
+					<option value="" label="choose one">Choose Genre</option>
+					<option value="/genre?id=country" label="Country">Country</option>
+					<option value="/genre?id=rap" label="Rap">Rap</option>
+					<option value="/genre?id=rock" label="Rock">Rock</option>
+					</select>
+			</div>
+
+		</div>
+		<br>
+
+<section class="success" id="about">
+        <div class="container">
+        	<h1 style="text-align: center;">This is a header</h1>
+        	<p>Here's some more text</p>
+
+        </div> <!-- end container --> 
+</section>
+
 <br>
 
-<div style="text-align: center">
-	<b>Choose Your Genre:</b>
-	<div style="text-align: center">
-	<b>Shows in Your State:</b>
-	<select id="otherSelect" name="landingpage">
-		<option value="" label="choose one">Choose Your State</option>
-		<option value="/genre?id=country" label="Country">Country</option>
-		<option value="/genre?id=rap" label="Rap">Rap</option>
-		<option value="/genre?id=rock" label="Rock">Rock</option>
-		</select>
-</div>
-</div>
+<div class="container">
+
+	<table class="table table-striped">
+
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Artist</th>
+			<th>Venue</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Ticket Link</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	    <% @tickets.each_with_index do |ticket, index| %>
+	         <tr>
+	            <td><%= ticket.date %></td>
+	            <td><%= ticket.artist %></td>
+	            <td><%= ticket.venue %></td>
+	            <td><%= ticket.city %></td>
+	            <td><%= ticket.state %></td>
+	            <td><%= link_to "Get Tickets &raquo;".html_safe, ticket.tickets, class: "btn btn-primary btn-md" %></td>
 
 
-<table class="table table-striped">
+	      <% end %>
+	      </tr>
+	</tbody>
 
-<thead>
-	<tr>
-		<th>Date</th>
-		<th>Artist</th>
-		<th>Venue</th>
-		<th>City</th>
-		<th>State</th>
-		<th>Ticket Link</th>
-	</tr>
-</thead>
+	 </table>
 
-<tbody>
-    <% @tickets.each_with_index do |ticket, index| %>
-         <tr>
-            <td><%= ticket.date %></td>
-            <td><%= ticket.artist %></td>
-            <td><%= ticket.venue %></td>
-            <td><%= ticket.city %></td>
-            <td><%= ticket.state %></td>
-            <td><%= link_to "Get Tickets &raquo;".html_safe, ticket.tickets, class: "btn btn-primary btn-md" %></td>
-
-
-      <% end %>
-      </tr>
-<tbody>
-
- </table>
+ </div>
 
  <script>
 
